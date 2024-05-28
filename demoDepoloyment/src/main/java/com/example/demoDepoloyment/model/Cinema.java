@@ -1,11 +1,16 @@
-package com.example.demoDepoloyment;
+package com.example.demoDepoloyment.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.util.UUID;
-
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "cinema")
 @SQLDelete(sql = "update cinema set deleted = true where id =?")

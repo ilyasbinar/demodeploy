@@ -1,27 +1,18 @@
-package com.example.xx2.service;
+package com.example.demoDepoloyment.service;
 
-import com.example.xx2.model.Cinema;
-import com.example.xx2.model.CinemaMovie;
-import com.example.xx2.model.Movie;
-import com.example.xx2.payload.CinemaCreateRequestDto;
-import com.example.xx2.payload.CinemaDto;
+
+import com.example.demoDepoloyment.model.Cinema;
+import com.example.demoDepoloyment.payload.CinemaCreateRequestDto;
+import com.example.demoDepoloyment.payload.CinemaDto;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface CinemaService {
-    Cinema getCinemaKelapaGading();
 
     List<Cinema> getAll();
 
-    List<CinemaMovie> getAllInCinema(Cinema cinemaKg);
-
     void updateAddress(Cinema cinema, String address);
-
-    void deleteMovieInCinema(Movie movie4, Cinema cinemaKg);
-
-    void softDeleteMovieInCinema(Movie movie, Cinema cinema);
-
 
     void deleteCinema(Cinema cinema);
 

@@ -1,6 +1,18 @@
-package com.example.demoDepoloyment;
+package com.example.demoDepoloyment.controller;
 
+import com.example.demoDepoloyment.model.Cinema;
+import com.example.demoDepoloyment.payload.CinemaCreateRequestDto;
+import com.example.demoDepoloyment.payload.CinemaDto;
+import com.example.demoDepoloyment.service.CinemaService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("cinema")
@@ -43,5 +55,17 @@ public class CinemaController {
 
         response.put("data", data);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public  ResponseEntity<Map<String, Object>> add(@RequestBody CinemaCreateRequestDto cinemaCreateRequestDto){
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("cinema", cinemaService.create(cinemaCreateRequestDto));
+        response.put("data", data);
+
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

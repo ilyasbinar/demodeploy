@@ -1,6 +1,6 @@
-package com.example.xx2.repository;
+package com.example.demoDepoloyment.repository;
 
-import com.example.xx2.model.Cinema;
+import com.example.demoDepoloyment.model.Cinema;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

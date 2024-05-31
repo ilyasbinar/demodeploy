@@ -33,6 +33,13 @@ public class CinemaController {
         return cinemaService.getAll();
     }
 
+    @GetMapping("dto2")
+    public List<CinemaDto> getAllDtos2(){
+        return cinemaService.getAll().stream()
+                .map(cinema -> modelMapper.map(cinema, CinemaDto.class))
+                .toList();
+    }
+
     @GetMapping("dto")
     public List<CinemaDto> getAllDtos(){
         return cinemaService.getAll().stream()
